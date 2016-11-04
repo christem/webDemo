@@ -26,8 +26,8 @@
             <td>${customer.telephone}</td>
             <td>${customer.email}</td>
             <td>
-                <a href="${BASE}/customer_edit?id=${customer.id}">编辑</a>
-                <a href="${BASE}/customer_delete?id=${customer.id}">删除</a>
+                <a href="${BASE}/org/smart4j/chapter2/controller/customer_edit?id=${customer.id}">编辑</a>
+                <a href="${BASE}/org/smart4j/chapter2/controller/customer_delete?id=${customer.id}">删除</a>
             </td>
         </tr>
     </c:forEach>

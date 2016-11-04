@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 显示客户基本信息
- */
+* 显示客户基本信息
+        */
 @WebServlet("/org/smart4j/chapter2/controller/customer_show")
 public class CustomerShowServlet extends HttpServlet {
 

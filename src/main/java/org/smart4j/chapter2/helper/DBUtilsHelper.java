@@ -22,9 +22,9 @@ import org.smart4j.chapter2.util.PropsUtil;
 /**
  * 数据库助手类
  */
-public final class DatabaseHelper {
+public final class DBUtilsHelper {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(DatabaseHelper.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DBUtilsHelper.class);
 
     private static final ThreadLocal<Connection> CONNECTION_HOLDER;
 
@@ -33,6 +33,7 @@ public final class DatabaseHelper {
     private static final BasicDataSource DATA_SOURCE;
 
     static {
+        //为了确保一个线程中只有一个Connection，让线程安全，使用ThreadLocal来存放本地线程变量
         CONNECTION_HOLDER = new ThreadLocal<Connection>();
 
         QUERY_RUNNER = new QueryRunner();
@@ -98,6 +99,22 @@ public final class DatabaseHelper {
         }
         return rows;
     }
+
+    /**
+     *  ResultSetHandler的实现类：
+     *
+     *  BeanHandler         返回bean对象
+     *  BeanListHandler     返回list对象
+     *  BeanMapHandler      返回map对象
+     *  ArrayHandler        返回Object[]对象
+     *  ArrayListHandler    返回list对象
+     *  MapHandler          返回map对象
+     *  MapListHandler      返回list对象
+     *  ScalarHandler       返回某列的值
+     *  ColumnListHandler   返回某列的值列表
+     *  KeyedHandler        返回map对象，需要制定列名
+     *
+     */
 
     /**
      * 查询实体列表
