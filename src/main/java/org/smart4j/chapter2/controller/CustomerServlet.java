@@ -26,6 +26,7 @@ public class CustomerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Customer> customerList = customerService.getCustomerList();
+//        List<Customer> customerList = customerService.getJdbcCustomerList();
         req.setAttribute("customerList", customerList);
         req.getRequestDispatcher("/WEB-INF/jsp/org/smart4j/chapter2/customer.jsp").forward(req, resp);
     }
