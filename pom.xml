@@ -7,9 +7,12 @@
   <groupId>com.yis</groupId>
   <artifactId>webDemo</artifactId>
   <version>1.0.0</version>
+  <modules>
+    <module>../chapter3</module>
+  </modules>
 
   <!-- 打包方式 -->
-  <packaging>war</packaging>
+  <packaging>pom</packaging>
 
   <!--统一源代码的编码方式为UTF-8 -->
   <properties>
@@ -17,6 +20,13 @@
   </properties>
 
   <dependencies>
+  <!-- smart-framework -->
+    <dependency>
+      <groupId>org.smart4j</groupId>
+      <artifactId>smart-framework</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+
     <!-- Servlet -->
     <dependency>
       <groupId>javax.servlet</groupId>
