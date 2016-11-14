@@ -8,6 +8,7 @@ import org.smart4j.framework.annotation.Action;
 import org.smart4j.framework.annotation.Controller;
 import org.smart4j.framework.annotation.Inject;
 import org.smart4j.framework.bean.Data;
+import org.smart4j.framework.bean.FileParam;
 import org.smart4j.framework.bean.Param;
 import org.smart4j.framework.bean.View;
 
@@ -52,8 +53,10 @@ public class CustomerController {
      */
     @Action("post:/org/smart4j/chapter3/controller/customer_create")
     public Data createSubmit(Param param) {
+        //获取表单字段的名值对映射
         Map<String, Object> fieldMap = param.getFieldMap();
-        boolean result = customerService.createCustomer(fieldMap);
+        FileParam fileParam = param.getFile("photo");
+        boolean result = customerService.createCustomer(fieldMap, fileParam);
         return new Data(result);
     }
 
